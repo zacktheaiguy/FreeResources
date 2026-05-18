@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Zack The AI Guy | Free Resources</title>
+<meta content="A clean AI resource hub with prompt decks, creator guides, workflows, and free templates." name="description">
+
+<style>
+    :root {
+      --bg: #05050a;
+      --bg-2: #0b0b14;
+      --card: rgba(255, 255, 255, 0.07);
+      --card-strong: rgba(255, 255, 255, 0.11);
+      --border: rgba(255, 255, 255, 0.14);
+      --text: #f7f7fb;
+      --muted: #a9a9b7;
+      --pink: #ff00e9;
+      --blue: #3aa8ff;
+      --purple: #8b5cf6;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255, 0, 233, 0.22), transparent 28%),
+        radial-gradient(circle at 85% 12%, rgba(58, 168, 255, 0.22), transparent 28%),
+        radial-gradient(circle at 50% 95%, rgba(139, 92, 246, 0.16), transparent 30%),
+        linear-gradient(180deg, #05050a 0%, #080812 52%, #05050a 100%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 64px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      height: 38px;
+      padding: 0 14px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--pink), var(--blue));
+      box-shadow: 0 0 28px rgba(255, 0, 233, 0.32);
+    }
+
+    .brand-mark span {
+      color: white;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      padding: 9px 12px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      transition: 180ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      border-color: var(--border);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 46px;
+    }
+
+    .profile-section {
+      margin: 0 auto 56px;
+      max-width: 620px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 0, 233, 0.24);
+      border-radius: 999px;
+      background: rgba(255, 0, 233, 0.08);
+      color: #ffd6fb;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--pink);
+      box-shadow: 0 0 18px var(--pink);
+    }
+
+    h1 {
+      font-size: clamp(34px, 5.2vw, 64px);
+      line-height: 0.94;
+      letter-spacing: -0.08em;
+      margin-bottom: 22px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #ffffff 0%, #ff8df5 42%, #72c4ff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 20px);
+      margin-bottom: 28px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, var(--pink), var(--blue));
+      color: white;
+      box-shadow: 0 18px 44px rgba(255, 0, 233, 0.24);
+    }
+
+    .button-secondary {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+    }
+
+    .profile-card {
+      position: relative;
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      padding: 24px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.055));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: radial-gradient(circle at 20% 0%, rgba(255, 0, 233, 0.22), transparent 35%), radial-gradient(circle at 95% 10%, rgba(58, 168, 255, 0.2), transparent 35%);
+      pointer-events: none;
+    }
+
+    .profile-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar {
+      width: 92px;
+      height: 92px;
+      border-radius: 28px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, rgba(255, 0, 233, 0.28), rgba(58, 168, 255, 0.26));
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 34px;
+      font-weight: 900;
+    }
+
+    .profile-card h2 {
+      font-size: 28px;
+      line-height: 1.1;
+      letter-spacing: -0.05em;
+      margin-bottom: 10px;
+    }
+
+    .profile-card p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .socials {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .socials a {
+      text-align: center;
+      padding: 11px 10px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      transition: 180ms ease;
+    }
+
+    .socials a:hover {
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.26);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 24px 0 64px;
+    }
+
+    .stat {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1;
+      letter-spacing: -0.07em;
+    }
+
+    .section-header p {
+      max-width: 420px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 62px;
+    }
+
+    .resource-card {
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 26px;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.06);
+      transition: 180ms ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resource-card::after {
+      content: "";
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      right: -48px;
+      top: -48px;
+      border-radius: 50%;
+      background: rgba(255, 0, 233, 0.18);
+      filter: blur(12px);
+    }
+
+    .resource-card:nth-child(even)::after {
+      background: rgba(58, 168, 255, 0.18);
+    }
+
+    .resource-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.26);
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .resource-card .tag {
+      width: fit-content;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .resource-card h3 {
+      margin-top: 34px;
+      font-size: 28px;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .resource-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .resource-card .open-link {
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .feature-strip {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-bottom: 62px;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .feature-box {
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .feature-box h3 {
+      font-size: 24px;
+      letter-spacing: -0.05em;
+      margin-bottom: 14px;
+    }
+
+    .feature-box ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .feature-box li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .feature-box li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-top: 9px;
+      flex: 0 0 auto;
+      background: linear-gradient(135deg, var(--pink), var(--blue));
+    }
+
+    .newsletter {
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 34px;
+      padding: clamp(28px, 5vw, 52px);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(255, 0, 233, 0.18), transparent 34%),
+        radial-gradient(circle at 100% 0%, rgba(58, 168, 255, 0.2), transparent 34%),
+        rgba(255, 255, 255, 0.07);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .newsletter h2 {
+      max-width: 720px;
+      margin: 0 auto 14px;
+      font-size: clamp(32px, 5vw, 58px);
+      line-height: 0.98;
+      letter-spacing: -0.075em;
+    }
+
+    .newsletter p {
+      max-width: 590px;
+      margin: 0 auto 26px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .email-form {
+      max-width: 560px;
+      margin: 0 auto;
+      display: flex;
+      gap: 10px;
+      padding: 8px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.24);
+    }
+
+    .email-form input {
+      flex: 1;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--text);
+      padding: 0 12px;
+      min-height: 46px;
+      font-size: 15px;
+    }
+
+    .email-form input::placeholder {
+      color: rgba(255, 255, 255, 0.42);
+    }
+
+    .email-form button {
+      border: 0;
+      cursor: pointer;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      color: white;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--pink), var(--blue));
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding-top: 34px;
+      color: rgba(255, 255, 255, 0.46);
+      font-size: 14px;
+    }
+
+    /* ===== Animated background blobs ===== */
+    .blob-field {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .blob {
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.55;
+      will-change: transform;
+    }
+    .blob-1 {
+      background: rgba(255, 0, 233, 0.42);
+      top: -120px;
+      left: -120px;
+      animation: drift1 22s ease-in-out infinite alternate;
+    }
+    .blob-2 {
+      background: rgba(58, 168, 255, 0.42);
+      top: -60px;
+      right: -160px;
+      animation: drift2 26s ease-in-out infinite alternate;
+    }
+    .blob-3 {
+      background: rgba(139, 92, 246, 0.34);
+      bottom: -180px;
+      left: 30%;
+      width: 620px;
+      height: 620px;
+      animation: drift3 30s ease-in-out infinite alternate;
+    }
+    @keyframes drift1 {
+      0%   { transform: translate3d(0, 0, 0) scale(1); }
+      100% { transform: translate3d(120px, 80px, 0) scale(1.15); }
+    }
+    @keyframes drift2 {
+      0%   { transform: translate3d(0, 0, 0) scale(1); }
+      100% { transform: translate3d(-140px, 100px, 0) scale(1.1); }
+    }
+    @keyframes drift3 {
+      0%   { transform: translate3d(0, 0, 0) scale(1); }
+      100% { transform: translate3d(-180px, -80px, 0) scale(1.2); }
+    }
+
+    /* ===== Scroll-in reveals ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 700ms cubic-bezier(0.2, 0.7, 0.2, 1),
+                  transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 600ms cubic-bezier(0.2, 0.7, 0.2, 1),
+                  transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+    .stagger.is-visible > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger.is-visible > *:nth-child(1) { transition-delay: 60ms; }
+    .stagger.is-visible > *:nth-child(2) { transition-delay: 140ms; }
+    .stagger.is-visible > *:nth-child(3) { transition-delay: 220ms; }
+    .stagger.is-visible > *:nth-child(4) { transition-delay: 300ms; }
+
+    /* ===== Enhanced resource card hover ===== */
+    .resource-card {
+      transform-style: preserve-3d;
+      perspective: 800px;
+      transition: transform 240ms cubic-bezier(0.2, 0.7, 0.2, 1),
+                  border-color 240ms ease,
+                  background 240ms ease,
+                  box-shadow 240ms ease;
+    }
+    .resource-card:hover {
+      transform: translateY(-6px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+      box-shadow: 0 28px 60px rgba(255, 0, 233, 0.18),
+                  0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+    }
+    .resource-card::after {
+      transition: transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1),
+                  opacity 400ms ease;
+    }
+    .resource-card:hover::after {
+      transform: scale(1.6) translate(-10px, 14px);
+      opacity: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .blob { animation: none; }
+      .reveal, .stagger > * {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .resource-card:hover {
+        transform: translateY(-5px);
+      }
+    }
+
+    .newsletter .profile-content {
+      max-width: 560px;
+      margin: 0 auto 28px;
+    }
+
+    .newsletter .avatar {
+      margin: 0 auto 18px;
+    }
+
+    .newsletter .socials {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .feature-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .resource-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 24px, 1120px);
+        padding-top: 18px;
+      }
+
+      .nav {
+        align-items: flex-start;
+        margin-bottom: 44px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      h1 {
+        font-size: clamp(46px, 15vw, 68px);
+      }
+
+      .hero {
+        gap: 22px;
+        margin-bottom: 28px;
+      }
+
+      .profile-card,
+      .newsletter {
+        border-radius: 26px;
+      }
+
+      .section-header {
+        display: block;
+      }
+
+      .section-header p {
+        margin-top: 12px;
+      }
+
+      .resource-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .resource-card {
+        min-height: 210px;
+      }
+
+      .email-form {
+        display: grid;
+        border-radius: 22px;
+      }
+
+      .email-form button {
+        width: 100%;
+      }
+    }
+  
+
+    .email-form[role="status"] {
+      justify-content: center;
+      text-align: center;
+    }
+</style>
+</head>
+<body style="">
+<div aria-hidden="true" class="blob-field">
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+</div>
+<main class="page">
+<nav aria-label="Main navigation" class="nav">
+<a aria-label="Zack The AI Guy resources home" class="brand" href="#top">
+<span class="brand-mark"><span>ZTAIG</span></span>
+<span>Zack The AI Guy's AI Resources</span>
+</a>
+<div class="nav-links">
+<a href="#resources">Resources</a>
+<a href="#about">About
+</a>
+<a href="#newsletter">Contact</a>
+</div>
+</nav>
+<section class="hero reveal" id="top">
+<div>
+<div class="eyebrow" style="">NEW Drops Every Week</div>
+<h1><span class="gradient-text" style="padding: 0px 4px 0px 0px; line-height: 0.95; letter-spacing: -2px; font-size: 55px">Learn How To Use AI + Steal My Actual Prompts.</span></h1>
+<p>This is my collection of FREE resources that I want to give to you to help you better understand AI and get smarter using it, its not meant to take jobs away; its meant to make YOUR job easier. You just need to evolve with it to stay ahead...</p>
+<div class="cta-row">
+<a class="button button-primary" href="#resources">FREE Resources</a>
+<a class="button button-secondary" href="https://www.youtube.com/@ZacktheAIGuy" rel="noreferrer" target="_blank">Watch on YouTube</a>
+</div>
+</div>
+</section>
+<section aria-label="Resource stats" class="stats stagger">
+<div class="stat">
+<strong data-count-to="4500" data-format="k+" style="">4.5k+</strong>
+<span style="">Users Following Along</span>
+</div>
+<div class="stat">
+<strong data-count-to="8" data-format="+" style="">8+</strong>
+<span style="">Different Workflows and Counting.&nbsp;</span>
+</div>
+<div class="stat">
+<strong>Weekly</strong>
+<span style="">AI News/ Updates/ Workflows</span>
+</div>
+</section>
+<section class="reveal" id="resources">
+<div class="section-header">
+<h2 style="letter-spacing: -1px; font-size: 37px">Get Started Here - FREE RESOURCES</h2>
+<p style="padding: 0px; text-align: center">These are actual resources (Copy/Paste Prompts, Model Updates, Workflows, Information) that I want to share with you completely for FREE.&nbsp;</p>
+</div>
+<div class="resource-grid stagger">
+<a class="resource-card" href="https://www.notion.so/ztaig-free-resources/35f82a32f3558031a89dc3a06139f1f5?v=36482a32f3558055bf20000cae89479b&amp;source=copy_link" rel="noreferrer" target="_blank">
+<div>
+<span class="tag">COPY+PASTE PROMPTS</span>
+<h3 style="letter-spacing: -0.5px">Copy/Paste Prompts</h3>
+<p style="font-weight: 600">Copy/paste prompts for TONS of different use cases, from marketing to travel and even image generation.&nbsp;</p>
+</div>
+<span class="open-link">Click To Open</span>
+</a>
+<a class="resource-card" href="https://www.notion.so/ztaig-free-resources/35f82a32f3558031a89dc3a06139f1f5?v=36482a32f3558081a642000c4ad07fb2&amp;source=copy_link" rel="noreferrer" target="_blank">
+<div>
+<span class="tag">DOWNLOADABLES</span>
+<h3 style="letter-spacing: -0.5px">Downloadable Files and Infographics</h3>
+<p style="font-weight: 600">Access real downloadable Skill.md files, visuals i generate, infographics, etc..</p>
+</div>
+<span class="open-link">Click To Open</span>
+</a>
+<a class="resource-card" href="https://www.notion.so/ztaig-free-resources/35f82a32f3558031a89dc3a06139f1f5?v=36482a32f3558093a330000cd70c5397&amp;source=copy_link" rel="noreferrer" target="_blank">
+<div>
+<span class="tag">WORKFLOWS</span>
+<h3 style="letter-spacing: -0.5px">Real World Multistep Workflows&nbsp;</h3>
+<p style="font-weight: 600">Actual Workflows that you can copy and run on your own.&nbsp;</p>
+</div>
+<span class="open-link">Click To Open</span>
+</a>
+<a class="resource-card" href="https://www.notion.so/ztaig-free-resources/35f82a32f3558031a89dc3a06139f1f5?v=36482a32f35580cf8bd6000cbca86c78&amp;source=copy_link" rel="noreferrer" target="_blank">
+<div>
+<span class="tag">MODEL UPDATES</span>
+<h3 style="letter-spacing: -0.5px">Stay Up To Date On Model Updates</h3>
+<p style="font-weight: 600">Updates covering the biggest changes in Ai and my digest on what it means FOR YOU.</p>
+</div>
+<span class="open-link">Click To Open</span>
+</a>
+<a class="resource-card" href="https://www.notion.so/ztaig-free-resources/35f82a32f3558031a89dc3a06139f1f5?v=36482a32f355802a8f9e000c7c1f7cd7&amp;source=copy_link" rel="noreferrer" target="_blank">
+<div>
+<span class="tag">AI TOOL GUIDES</span>
+<h3 style="letter-spacing: -0.5px">Beginners Guides to AI</h3>
+<p style="font-weight: 600">Learn how to navigate and use AI models like ChatGPT, Gemini, Claude and unlock their full capabilities.&nbsp;</p>
+</div>
+<span class="open-link">Click To Open</span>
+</a>
+<a class="resource-card" href="https://www.notion.so/ztaig-free-resources/35f82a32f3558031a89dc3a06139f1f5?v=36482a32f355809fa23a000c82c04739&amp;source=copy_link" rel="noreferrer" target="_blank">
+<div>
+<span class="tag">ALL RESOURCES</span>
+<h3 style="letter-spacing: -0.5px">Browse Everything</h3>
+<p style="font-weight: 600">One full library of every prompt, workflow, guide, and update in one place.</p>
+</div>
+<span class="open-link">Click To Open</span>
+</a>
+</div>
+</section>
+<section class="feature-strip reveal" id="about">
+<div class="feature-box">
+<h3 style="font-size: 37px">Why I Built This</h3>
+<ul>
+<li>I notice too many people hesitant to embrace AI, its sole purpose is to make your life easier and I want to show you just how much it can do that.&nbsp;</li>
+<li>Provide you with actual resources that are in line with my content so you can easily follow what I do on my actual videos.&nbsp;</li>
+<li>Help YOU get smarter with AI, so you can get work done and focus on things you actually care about.&nbsp;</li>
+</ul>
+</div>
+</section>
+<section aria-label="Creator profile and contact" class="newsletter reveal" id="newsletter">
+<div class="profile-content">
+<div class="avatar">Z</div>
+<h2 style="letter-spacing: -0.5px">Connect With Me</h2>
+<p>Access nearly 100 videos across multiple platforms teaching you about getting smarter with AI and incorporating it into your actual workflows.</p>
+<div class="socials">
+<a href="https://www.notion.so/ztaig-free-resources/35f82a32f3558031a89dc3a06139f1f5?v=36482a32f355809fa23a000c82c04739&amp;source=copy_link" rel="noreferrer" target="_blank">Notion</a>
+<a href="https://www.tiktok.com/@zacktheaiiguy" rel="noreferrer" target="_blank">TikTok</a>
+<a href="https://www.youtube.com/@ZacktheAIGuy" rel="noreferrer" target="_blank">YouTube</a>
+<a href="https://www.instagram.com/zacktheaiguy" rel="noreferrer" target="_blank">Instagram</a>
+</div>
+</div>
+<div aria-label="Insiders Club coming soon" class="email-form" role="status"><span style="width:100%; min-height:46px; display:flex; align-items:center; justify-content:center; font-weight:900; letter-spacing:0.08em; color:#ffffff;">INSIDERS CLUB COMING SOON</span></div>
+</section>
+<footer>
+<span>© 2026 ZTAIG. All rights reserved.
+</span>
+<span>Built To Help You Get Smarter With Ai.&nbsp;
+</span>
+</footer>
+</main>
+<script>
+    (function() {
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const revealEls = document.querySelectorAll('.reveal, .stagger');
+      if (reduced || !('IntersectionObserver' in window)) {
+        revealEls.forEach(el => el.classList.add('is-visible'));
+      } else {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+        revealEls.forEach(el => io.observe(el));
+      }
+
+      const formatCount = (n, format) => {
+        if (format === 'k+') {
+          const k = n / 1000;
+          return (k % 1 < 0.05 || k % 1 > 0.95 ? Math.round(k) : k.toFixed(1)) + 'k+';
+        }
+        if (format === '+') return Math.round(n) + '+';
+        return Math.round(n).toString();
+      };
+      const animateCount = (el) => {
+        const target = parseFloat(el.dataset.countTo);
+        const format = el.dataset.format || '';
+        if (reduced) {
+          el.textContent = formatCount(target, format);
+          return;
+        }
+        const duration = 1600;
+        const start = performance.now();
+        const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+        const step = (now) => {
+          const t = Math.min((now - start) / duration, 1);
+          el.textContent = formatCount(target * easeOut(t), format);
+          if (t < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      };
+      const counters = document.querySelectorAll('[data-count-to]');
+      if ('IntersectionObserver' in window) {
+        const cio = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              animateCount(entry.target);
+              cio.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.4 });
+        counters.forEach(el => cio.observe(el));
+      } else {
+        counters.forEach(animateCount);
+      }
+
+      if (!reduced && window.matchMedia('(hover: hover)').matches) {
+        document.querySelectorAll('.resource-card').forEach(card => {
+          card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            card.style.setProperty('--ry', (x * 8).toFixed(2) + 'deg');
+            card.style.setProperty('--rx', (-y * 8).toFixed(2) + 'deg');
+          });
+          card.addEventListener('mouseleave', () => {
+            card.style.setProperty('--rx', '0deg');
+            card.style.setProperty('--ry', '0deg');
+          });
+        });
+      }
+    })();
+  </script>
+</body></html>
